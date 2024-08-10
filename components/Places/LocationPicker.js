@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { useNavigation, useRoute, useIsFocused } from '@react-navigation/native';
 
-import { Colors } from '../../constants/colors';
-import OutlinedButton from '../UI/OutlinedButton';
+import { Colors } from '@/constants/colors';
+import OutlinedButton from '@/components/UI/OutlinedButton';
 
 function LocationPicker({ onPickLocation }) {
   const isFocused = useIsFocused();
