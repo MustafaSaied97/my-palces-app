@@ -1,20 +1,50 @@
 import { useEffect, useState } from 'react';
 import { useIsFocused } from '@react-navigation/native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import PlacesList from '@/components/Places/PlacesList';
+import { Colors } from '@/constants/colors';
+import PlaceItem from '@/components/Places/PlaceItem';
 
 function AllPlaces({ route }) {
-  const [loadedPlaces, setLoadedPlaces] = useState([]);
+  const [places, setPlaces] = useState([]);
 
   const isFocused = useIsFocused();
 
   useEffect(() => {
-    if (isFocused && route.params) {
-      setLoadedPlaces((curPlaces) => [...curPlaces, route.params.place]);
-    }
-  }, [isFocused, route]);
+    // route?.params?.place && setPlaces((curPlaces) => [...curPlaces, route.params.place]);
+    console.log(' route?.params?.place', route?.params?.place);
+  }, [isFocused]);
 
-  return <PlacesList places={loadedPlaces} />;
+  if (!places || places.length === 0) {
+    return (
+      <View style={styles.fallbackContainer}>
+        <Text style={styles.fallbackText}>No places added yet - start adding some!</Text>
+      </View>
+    );
+  }
+
+  return (
+    <FlatList
+      style={styles.list}
+      data={places}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => <PlaceItem place={item} />}
+    />
+  );
 }
 
 export default AllPlaces;
+const styles = StyleSheet.create({
+  list: {
+    margin: 24,
+  },
+  fallbackContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fallbackText: {
+    fontSize: 16,
+    color: Colors.primary200,
+  },
+});

@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, Text } from 'react-native';
 import { useNavigation, useRoute, useIsFocused } from '@react-navigation/native';
 
 import { Colors } from '@/constants/colors';
-import OutlinedButton from '@/components/UI/OutlinedButton';
+import { OutlinedButton } from '@/components/UI';
 
 function LocationPicker({ onPickLocation }) {
   const isFocused = useIsFocused();

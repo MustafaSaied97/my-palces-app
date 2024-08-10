@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '@/constants/colors';
-import OutlinedButton from '@/components/UI/OutlinedButton';
-import useMedia from '@/hooks/useMedia';
-import useCamera from '@/hooks/useCamera';
+import { OutlinedButton } from '@/components/UI';
+import { useMedia, useCamera } from '@/hooks';
 
 function ImagePicker({ onTakeImage }) {
   const [pickedImage, setPickedImage] = useState(null);
