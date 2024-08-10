@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Colors } from '@/constants/colors';
 import { Place } from '@/models/place';
@@ -8,7 +8,7 @@ import { Button, ImagePicker, LocationPicker } from '@/components';
 function AddPlace({ navigation, route }) {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [selectedImage, setSelectedImage] = useState();
-  const [pickedLocation, setPickedLocation] = useState({});
+  const [pickedLocation, setPickedLocation] = useState();
 
   function changeTitleHandler(enteredText) {
     setEnteredTitle(enteredText);
@@ -23,6 +23,10 @@ function AddPlace({ navigation, route }) {
   }, []);
 
   function savePlaceHandler() {
+    if (!enteredTitle || !selectedImage || !pickedLocation) {
+      Alert.alert('you must add all fileds');
+      return;
+    }
     const placeData = new Place(enteredTitle, selectedImage, pickedLocation);
     navigation.navigate('AllPlaces', {
       place: placeData,

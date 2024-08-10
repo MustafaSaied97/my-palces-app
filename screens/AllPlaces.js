@@ -8,12 +8,9 @@ import PlaceItem from '@/components/Places/PlaceItem';
 function AllPlaces({ route }) {
   const [places, setPlaces] = useState([]);
 
-  const isFocused = useIsFocused();
-
   useEffect(() => {
-    // route?.params?.place && setPlaces((curPlaces) => [...curPlaces, route.params.place]);
-    console.log(' route?.params?.place', route?.params?.place);
-  }, [isFocused]);
+    route?.params?.place && setPlaces((curPlaces) => [...curPlaces, route.params.place]);
+  }, [route?.params]);
 
   if (!places || places.length === 0) {
     return (
