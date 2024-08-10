@@ -1,6 +1,6 @@
 import { useCallback, useLayoutEffect, useState, useRef, useEffect } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
-import IconButton from '../components/UI/IconButton';
+import IconButton from '@/components/UI/IconButton';
 import MapView, { Marker } from 'react-native-maps';
 import { useRoute, useIsFocused } from '@react-navigation/native';
 import ViewShot from 'react-native-view-shot';

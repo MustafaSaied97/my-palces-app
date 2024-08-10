@@ -3,9 +3,9 @@ import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Colors } from '@/constants/colors';
 import { Place } from '@/models/place';
-import Button from '@/components/UI/Button';
-import ImagePicker from '@/components/Places/ImagePicker';
-import LocationPicker from '@/components/Places/LocationPicker';
+import { Button } from '@/components/UI';
+import ImagePicker from './ImagePicker';
+import LocationPicker from './LocationPicker';
 
 function PlaceForm({ onCreatePlace }) {
   const [enteredTitle, setEnteredTitle] = useState('');
