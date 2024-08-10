@@ -1,6 +1,5 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
-
-import { Colors } from '../../constants/colors';
+import { Colors } from '@/constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 
 function Button({ onPress, children, icon }) {

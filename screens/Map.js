@@ -5,7 +5,7 @@ import MapView, { Marker } from 'react-native-maps';
 import { useRoute, useIsFocused } from '@react-navigation/native';
 import ViewShot from 'react-native-view-shot';
 import useUserLocation from '../hooks/useUserLocation';
-import Button from '../components/UI/Button';
+import Button from '@/components/UI/Button';
 
 function Map({ navigation }) {
   const route = useRoute();

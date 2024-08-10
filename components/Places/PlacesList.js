@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import { Colors } from '../../constants/colors';
-import PlaceItem from './PlaceItem';
+import { Colors } from '@/constants/colors';
+import PlaceItem from '@/components/Places/PlaceItem';
 
 function PlacesList({ places }) {
   if (!places || places.length === 0) {
