@@ -40,7 +40,7 @@ function LocationPicker({ onPickLocation }) {
   return (
     <View>
       <View style={styles.mapPreview}>
-        {pickedLocation ? (
+        {locationPreview ? (
           <Image style={styles.image} source={{ uri: locationPreview }} />
         ) : (
           <Text>No location picked yet.</Text>
