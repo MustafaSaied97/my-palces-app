@@ -21,11 +21,12 @@ function Map({ navigation }) {
   }
   async function selectCurrentUserLocationHandler() {
     const location = await getCurrentLocation();
+    if (!location) return;
     const currnet = {
       lat: location.coords.latitude,
       lng: location.coords.longitude,
     };
-    location && setSelectedLocation(currnet);
+    setSelectedLocation(currnet);
   }
 
   const savePickedLocationHandler = useCallback(async () => {
